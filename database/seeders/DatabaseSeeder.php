@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
                 // =========================
-        // 1. USER (Admin, Siswa, Guru)
+        // 1. USER (Admin & Siswa)
         // =========================
         User::create([
             'name' => 'Admin SIPAL',
@@ -22,38 +22,51 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        User::create([
-            'name' => 'Abdul Aziz Nurrahman',
-            'email' => '1001', // NISN
-            'password' => Hash::make('password'),
-            'role' => 'siswa',
-            'class' => 'XII RPL C',
-        ]);
-        
-        User::create([
-            'name' => 'Adiputra Aryasena',
-            'email' => '1002',
-            'password' => Hash::make('password'),
-            'role' => 'siswa',
-            'class' => 'XII RPL A',
-        ]);
+        // Data Siswa XII RPL C (Sesuai Foto)
+        $siswa = [
+            ['nis' => '24122', 'nama' => 'ABDUL AZIZ NURRAHMAN', 'jk' => 'L'],
+            ['nis' => '24123', 'nama' => 'ADIPUTRA ARYA SENA', 'jk' => 'L'],
+            ['nis' => '24124', 'nama' => 'ALVIN YOURRY PUTRA MENTARI', 'jk' => 'L'],
+            ['nis' => '24125', 'nama' => 'AMADEO BRIAN RANASTYA PUTRA', 'jk' => 'L'],
+            ['nis' => '24127', 'nama' => 'ANDREAS KELVIN ANASTA PUTRA', 'jk' => 'L'],
+            ['nis' => '24128', 'nama' => 'ANUELI AFIFAH DARAJATI', 'jk' => 'P'],
+            ['nis' => '24129', 'nama' => 'AZRIEL AIDA NUROCHIM', 'jk' => 'P'],
+            ['nis' => '24130', 'nama' => 'BINTANG FAHRI HASCARYA', 'jk' => 'L'],
+            ['nis' => '24131', 'nama' => 'CARISHA AMIRA INSANI', 'jk' => 'P'],
+            ['nis' => '24132', 'nama' => 'CHELSEA MUHAMMAD ADLI', 'jk' => 'L'],
+            ['nis' => '24133', 'nama' => 'CHRISTIAN WARDANA', 'jk' => 'L'],
+            ['nis' => '24134', 'nama' => 'CLEODORA BERTHA FORTUNA', 'jk' => 'P'],
+            ['nis' => '24135', 'nama' => 'CRISTIANO VIELI KALIGIS', 'jk' => 'L'],
+            ['nis' => '24136', 'nama' => 'DAFFA FARIH IRFANUDIN', 'jk' => 'L'],
+            ['nis' => '24137', 'nama' => 'DESTA TIAR REDRIANA', 'jk' => 'P'],
+            ['nis' => '24138', 'nama' => 'FARREL BRILLIANT NUGROHO', 'jk' => 'L'],
+            ['nis' => '24139', 'nama' => 'FIDA QUROTTU AINI', 'jk' => 'P'],
+            ['nis' => '24140', 'nama' => 'GHOZI MUMTAZA HANIF', 'jk' => 'L'],
+            ['nis' => '24141', 'nama' => 'IRFAN AJI WARDANA', 'jk' => 'L'],
+            ['nis' => '24142', 'nama' => 'MANESTIKO BANYUBIRU', 'jk' => 'L'],
+            ['nis' => '24144', 'nama' => 'MICHAEL ADITYA', 'jk' => 'L'],
+            ['nis' => '24145', 'nama' => 'MOSES ADI SAPUTRA', 'jk' => 'L'],
+            ['nis' => '24146', 'nama' => 'MUHAMMAD ANSHORI', 'jk' => 'L'],
+            ['nis' => '24147', 'nama' => 'MUHAMMAD FAHRI RAHMAN ARRAFI', 'jk' => 'L'],
+            ['nis' => '24148', 'nama' => 'MUHAMMAD ROSYID MURYANTO', 'jk' => 'L'],
+            ['nis' => '24149', 'nama' => 'NICHOLAS GUSTI SAPUTRA', 'jk' => 'L'],
+            ['nis' => '24150', 'nama' => 'PRANAJA ABI PRAYA WIDYATAMA', 'jk' => 'L'],
+            ['nis' => '24151', 'nama' => 'RAMADITYA SURYA PUTRA', 'jk' => 'L'],
+            ['nis' => '24152', 'nama' => 'SABIAN APTA AIRA', 'jk' => 'L'],
+            ['nis' => '24153', 'nama' => 'SATRIA RAHMANSYAH', 'jk' => 'L'],
+            ['nis' => '24154', 'nama' => 'THEODORICK BAKUH PANGGAILIH', 'jk' => 'L'],
+            ['nis' => '24155', 'nama' => 'XIAN ADI NUGROHO', 'jk' => 'L'],
+        ];
 
-        User::create([
-            'name' => 'Alvin Yourry Putra Mentari',
-            'email' => '1003',
-            'password' => Hash::make('password'),
-            'role' => 'siswa',
-            'class' => 'XI TKJ 1',
-        ]);
-
-        // TAMBAHAN AKUN GURU
-        User::create([
-            'name' => 'Kurniasari, S.Kom.',
-            'email' => '2001', // NIP Pendek
-            'password' => Hash::make('password'),
-            'role' => 'guru',
-            'class' => 'Guru Pemrograman Perangkat Bergerak', // Penanda kelas untuk guru
-        ]);
+        foreach ($siswa as $s) {
+            User::create([
+                'name' => $s['nama'],
+                'email' => $s['nis'], 
+                'password' => Hash::make('password'),
+                'role' => 'siswa',
+                'class' => 'XII RPL C',
+            ]);
+        }
 
                 // =========================
         // 2. CATEGORIES (Dibuat lebih spesifik)
